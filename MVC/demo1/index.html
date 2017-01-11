@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app>
 	<head>
-		<title>angularjs的MVC</title>
+		<title>angularjs的控制器的复用</title>
 	</head>
 	<body>
 		<div ng-controller="CommonController">	
@@ -14,6 +14,10 @@
 				<button ng-click="test2()">test2</button>
 			</div>
 			<button ng-click="CommonFn()">通用方法</button>
+			<!--
+				只要在CommonController层级下，CommonFn()方法均能起作用，可以理解为下面的
+				两个controller继承了这个commonController
+			-->
 		</div>
 		<script type="text/javascript" src="../angular-1.3.0.js"></script>
 		<script type="text/javascript" src="mvc.js"></script>
