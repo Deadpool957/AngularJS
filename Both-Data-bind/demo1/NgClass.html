@@ -4,16 +4,19 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="NgClass.css">
+    <script src="js/angular-1.3.0.js"></script>
+    <script src="NgClass.js"></script>
 </head>
 
 <body>
     <div ng-controller='HeaderController'>
         <div ng-class='{error: isError, warning: isWarning}'>{{messageText}}</div>
+        <!--
+        利用ng-class会更高级，支持表达式赋值。如果isError为true，则使用error的样式，
+		如果isWarning为true，则使用warning的样式。
+        -->
         <button ng-click='showError()'>Simulate Error</button>
         <button ng-click='showWarning()'>Simulate Warning</button>
     </div>
 </body>
-<script src="js/angular-1.3.0.js"></script>
-<script src="NgClass.js"></script>
-
 </html>
