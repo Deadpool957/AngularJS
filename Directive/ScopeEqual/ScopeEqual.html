@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="MyModule">
+	<head>
+		<meta charset="utf-8">
+		<title>scope的=绑定（用指令的属性来实现$scope的属性和独立作用域属性的双向传递）</title>
+		<!--与$scope中的属性进行双向绑定-->
+		<script src="../angular-1.3.0.js"></script>
+		<script src="ScopeEqual.js"></script>
+	</head>
+	<body>
+		<div ng-controller="MyCtrl">
+			Ctrl:
+			<br>
+			<!--1.用ng-model可以单独实现双向数据绑定-->
+			<input type="text" ng-model="ctrlFlavor">
+			{{ctrlFlavor}}
+			<br>
+			<!--2.用指令也可以单独实现双向数据绑定-->
+			Directive:
+			<br>
+			<drink flavor="ctrlFlavor"></drink>
+			<!--
+			flavor="ctrlFlavor"，这里的ctrlFlavor取值于控制器里的ctrlFlavor。
+			这里ctrlFlavor不加{{}}是因为它要实现双向数据绑定，和ng-model里不加{{}}一个道理。
+
+			如果加了{{}}就和scope的@绑定一样了，还需要修改独立作用域的flavor为@，这样只能实现单向
+			数据绑定。
+
+			注意，方法1和方法2之间没有任何关联。
+			-->
+		</div>
+	</body>
+</html>
