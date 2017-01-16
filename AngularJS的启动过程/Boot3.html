@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>第三种启动方式</title>
+		<script src="js/angular.js"></script>
+		<script src="Boot3.js"></script>
+	</head>
+	<body>
+	<!--
+	多个ng-app只要不嵌套的情况下是可以启动正常的，默认启动第一个
+
+    但是第二个ng-app的话需要自己去手动启动，但是不利于处理路由
+
+    不可重复启动ng-app，自动启动了以后，就不要手动再去启动了
+     -->
+		<div id="app1" ng-app="MyModule1">
+			<div ng-controller="MyCtrl">
+				<span>{{gameName}}</span>
+			</div>
+		</div>
+		<div id="app2" ng-app="MyModule2">
+			<div ng-controller="MyCtrl">
+				<span>{{gameName}}</span>
+			</div>
+		</div>
+	</body>
+</html>
