@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="lib/bootstrap.min.css">
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <title>表单验证</title>
+    <title>表单验证基础</title>
     <style>
+        body{margin: 5px}
         .error{border: 1px solid red}
     </style>
 </head>
@@ -22,10 +23,20 @@
                    required
                    class='form-control'>
             <!--
+            ng-class :ng的类控制
             'error':signupForm.username.$invalid 意思是当signupForm.username.$invalid为true
             时，样式就是error。
             -->
         </div>
+        <p ng-if="signupForm.username.$invalid && signupForm.username.$touched"
+           class="alert alert-danger">请检查用户名</p>
+        <!--
+        ng-if: 后接一个条件，如果条件内的值为true，则把标签里面的内容输出
+        -->
+        <button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid">提交</button>
+        <!--
+        ng-disabled:当里面的值为true时，该项就会被禁用
+        -->
     </form>
 </body>
 </html>
